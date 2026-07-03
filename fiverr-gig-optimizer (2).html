@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiverr Gig Optimizer Pro | IncomeAIHub</title>
+<meta name="description" content="Free Fiverr Gig Optimizer - Analyze your gig title, description, tags & pricing. Get AI-powered SEO score and suggestions to rank higher and get more orders.">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#070710;
+  --bg2:#0c0c1a;
+  --panel:#0f1320;
+  --panel2:#11162a;
+  --cyan:#00f0ff;
+  --purple:#b06cff;
+  --green:#00ff9d;
+  --red:#ff3b6b;
+  --yellow:#ffd84a;
+  --text:#dbe6ff;
+  --muted:#7e8bb3;
+  --border:rgba(0,240,255,0.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Rajdhani',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body{
+  background-image:
+    linear-gradient(rgba(0,240,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,240,255,0.04) 1px, transparent 1px),
+    radial-gradient(circle at 20% 10%, rgba(176,108,255,0.12), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(0,240,255,0.1), transparent 40%);
+  background-size:40px 40px, 40px 40px, cover, cover;
+  position:relative;
+}
+body::before{
+  content:"";
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  z-index:9999;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02) 0px,
+    rgba(255,255,255,0.02) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode:overlay;
+}
+h1,h2,h3,.brand,.score-num{font-family:'Orbitron',sans-serif;}
+mono,.mono,code{font-family:'Share Tech Mono',monospace;}
+
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--purple);border-radius:4px;}
+
+.wrap{max-width:1200px;margin:0 auto;padding:18px;}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:28px 14px 18px;
+}
+.brand{
+  font-size:clamp(22px,5vw,38px);
+  font-weight:900;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,var(--cyan),var(--purple),var(--green));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 0 30px rgba(0,240,255,0.25);
+}
+.tagline{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:clamp(13px,2.4vw,16px);
+  letter-spacing:0.5px;
+}
+.badge-row{
+  display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
+  margin-top:14px;
+}
+.badge{
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;
+  padding:5px 12px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  color:var(--cyan);
+  background:rgba(0,240,255,0.05);
+}
+
+/* AD SLOT */
+.ad-slot{
+  max-width:1200px;margin:14px auto;
+  border:1px dashed var(--border);
+  border-radius:10px;
+  min-height:90px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);
+  font-family:'Share Tech Mono',monospace;
+  font-size:12px;
+  background:rgba(255,255,255,0.015);
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:20px auto 24px;
+  max-width:900px;
+}
+.tab-btn{
+  font-family:'Rajdhani',sans-serif;
+  font-weight:700;
+  font-size:14px;
+  padding:10px 18px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  color:var(--muted);
+  border-radius:8px;
+  cursor:pointer;
+  transition:all .25s ease;
+  letter-spacing:0.5px;
+}
+.tab-btn:hover{color:var(--cyan);border-color:var(--cyan);}
+.tab-btn.active{
+  color:#03060d;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  border-color:transparent;
+  box-shadow:0 0 18px rgba(0,240,255,0.35);
+}
+
+.panel{display:none;}
+.panel.active{display:block;animation:fadein .35s ease;}
+@keyframes fadein{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+.card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.02), 0 10px 30px rgba(0,0,0,0.35);
+}
+.card h2{
+  font-size:18px;
+  color:var(--cyan);
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.card h2 .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 10px var(--green);
+}
+
+label{
+  display:block;
+  font-weight:600;
+  font-size:13px;
+  color:var(--muted);
+  margin:14px 0 6px;
+  letter-spacing:0.4px;
+  text-transform:uppercase;
+}
+label:first-child{margin-top:0;}
+input[type=text],input[type=number],textarea,select{
+  width:100%;
+  background:#080a14;
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:11px 13px;
+  border-radius:8px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:15px;
+  font-weight:500;
+  outline:none;
+  transition:border .2s, box-shadow .2s;
+}
+input::placeholder,textarea::placeholder{color:#4b5575;}
+input:focus,textarea:focus,select:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 0 3px rgba(0,240,255,0.12);
+}
+textarea{resize:vertical;min-height:120px;line-height:1.5;}
+.charcount{
+  text-align:right;font-size:11px;color:var(--muted);margin-top:4px;font-family:'Share Tech Mono',monospace;
+}
+.charcount.warn{color:var(--yellow);}
+.charcount.bad{color:var(--red);}
+.charcount.good{color:var(--green);}
+
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:640px){.row{grid-template-columns:1fr;}}
+
+.btn{
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:0.5px;
+  padding:13px 22px;
+  border:none;
+  border-radius:9px;
+  cursor:pointer;
+  color:#03060d;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  transition:transform .15s, box-shadow .2s;
+  box-shadow:0 6px 20px rgba(0,240,255,0.25);
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(0,240,255,0.4);}
+.btn:active{transform:translateY(0);}
+.btn.secondary{
+  background:transparent;
+  border:1px solid var(--purple);
+  color:var(--purple);
+  box-shadow:none;
+}
+.btn.secondary:hover{background:rgba(176,108,255,0.1);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+
+/* RESULTS */
+.score-wrap{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.score-circle{
+  width:130px;height:130px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  background:conic-gradient(var(--cyan) calc(var(--pct,0)*1%), #1a2035 0);
+  position:relative;
+  flex-shrink:0;
+}
+.score-circle::before{
+  content:"";
+  position:absolute;
+  width:104px;height:104px;
+  border-radius:50%;
+  background:var(--bg2);
+}
+.score-num{position:relative;font-size:30px;font-weight:900;color:var(--cyan);z-index:1;}
+.score-label{position:relative;font-size:10px;color:var(--muted);z-index:1;letter-spacing:1px;}
+.score-meta h3{font-size:20px;color:var(--text);margin-bottom:4px;}
+.score-meta p{color:var(--muted);font-size:14px;}
+.score-tag{
+  display:inline-block;
+  margin-top:6px;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  font-family:'Share Tech Mono',monospace;
+}
+.tag-excellent{background:rgba(0,255,157,0.15);color:var(--green);border:1px solid var(--green);}
+.tag-good{background:rgba(0,240,255,0.15);color:var(--cyan);border:1px solid var(--cyan);}
+.tag-fair{background:rgba(255,216,74,0.15);color:var(--yellow);border:1px solid var(--yellow);}
+.tag-poor{background:rgba(255,59,107,0.15);color:var(--red);border:1px solid var(--red);}
+
+.check-list{list-style:none;margin-top:10px;}
+.check-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  font-size:14px;
+}
+.check-list li:last-child{border-bottom:none;}
+.check-icon{
+  flex-shrink:0;
+  width:20px;height:20px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;
+  font-weight:900;
+  margin-top:1px;
+}
+.icon-pass{background:rgba(0,255,157,0.18);color:var(--green);}
+.icon-warn{background:rgba(255,216,74,0.18);color:var(--yellow);}
+.icon-fail{background:rgba(255,59,107,0.18);color:var(--red);}
+.check-text strong{color:var(--text);display:block;}
+.check-text span{color:var(--muted);font-size:12.5px;}
+
+.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.pill{
+  font-family:'Share Tech Mono',monospace;
+  font-size:12px;
+  padding:5px 10px;
+  border-radius:6px;
+  background:rgba(176,108,255,0.12);
+  color:var(--purple);
+  border:1px solid rgba(176,108,255,0.3);
+}
+.pill.cyan{background:rgba(0,240,255,0.1);color:var(--cyan);border-color:rgba(0,240,255,0.3);}
+.pill.green{background:rgba(0,255,157,0.1);color:var(--green);border-color:rgba(0,255,157,0.3);}
+
+.empty-state{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  font-size:14px;
+}
+.empty-state .big{font-size:40px;margin-bottom:10px;}
+
+/* Pricing table */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px;}
+@media(max-width:768px){.pricing-grid{grid-template-columns:1fr;}}
+.price-card{
+  background:#080a14;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+}
+.price-card h4{color:var(--cyan);font-family:'Orbitron',sans-serif;font-size:14px;margin-bottom:8px;letter-spacing:1px;}
+.price-card .amount{font-size:26px;font-weight:900;color:var(--green);font-family:'Orbitron',sans-serif;margin-bottom:6px;}
+.price-card .delivery{color:var(--muted);font-size:12px;margin-bottom:10px;}
+.price-card ul{list-style:none;text-align:left;font-size:13px;color:var(--text);}
+.price-card ul li{padding:5px 0;display:flex;gap:6px;}
+.price-card ul li::before{content:"✓";color:var(--green);font-weight:700;}
+
+/* Keyword density table */
+.kw-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;}
+.kw-table th{
+  text-align:left;color:var(--cyan);font-size:11px;text-transform:uppercase;
+  letter-spacing:0.5px;padding:8px 10px;border-bottom:1px solid var(--border);
+}
+.kw-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.04);}
+.kw-bar-bg{background:#1a2035;border-radius:4px;height:6px;width:100%;overflow:hidden;margin-top:4px;}
+.kw-bar{height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));}
+
+/* Hindi guide */
+.hindi-guide{
+  background:linear-gradient(135deg,rgba(176,108,255,0.08),rgba(0,240,255,0.05));
+  border:1px solid rgba(176,108,255,0.3);
+}
+.hindi-guide h2{color:var(--purple);}
+.hindi-guide ol,.hindi-guide ul{margin-left:20px;margin-top:8px;}
+.hindi-guide li{margin-bottom:10px;font-size:14.5px;line-height:1.6;color:var(--text);}
+.hindi-guide li strong{color:var(--green);}
+.hindi-guide p{font-size:14.5px;line-height:1.7;color:var(--text);margin-bottom:10px;}
+
+footer{
+  text-align:center;
+  padding:30px 14px 40px;
+  color:var(--muted);
+  font-size:12px;
+}
+footer a{color:var(--cyan);text-decoration:none;}
+
+.toast{
+  position:fixed;
+  bottom:24px;left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:var(--panel2);
+  border:1px solid var(--green);
+  color:var(--green);
+  padding:12px 22px;
+  border-radius:10px;
+  font-family:'Share Tech Mono',monospace;
+  font-size:13px;
+  z-index:10000;
+  transition:transform .35s ease;
+  box-shadow:0 8px 30px rgba(0,255,157,0.2);
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+.flex-between{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.small-note{font-size:12px;color:var(--muted);margin-top:6px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">⚡ FIVERR GIG OPTIMIZER PRO</div>
+    <div class="tagline">IncomeAIHub Suite — Title, Description, Tags &amp; Pricing Analyzer for Indian Freelancers</div>
+    <div class="badge-row">
+      <span class="badge">🇮🇳 INR Ready</span>
+      <span class="badge">🤖 Rule-Based + AI Scoring</span>
+      <span class="badge">📈 SEO Optimized</span>
+      <span class="badge">🔒 100% Browser-Based</span>
+    </div>
+  </header>
+
+  <div class="ad-slot" id="ad-top">Advertisement (728x90) — AdSense Slot</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="title">📝 Title Analyzer</button>
+    <button class="tab-btn" data-tab="desc">📄 Description Analyzer</button>
+    <button class="tab-btn" data-tab="tags">🏷️ Tags &amp; SEO</button>
+    <button class="tab-btn" data-tab="pricing">💰 Pricing Builder</button>
+    <button class="tab-btn" data-tab="guide">🇮🇳 हिंदी गाइड</button>
+  </div>
+
+  <!-- ============ TAB 1: TITLE ANALYZER ============ -->
+  <div class="panel active" id="panel-title">
+    <div class="card">
+      <h2><span class="dot"></span>Gig Title Input</h2>
+      <label>Your Gig Title</label>
+      <input type="text" id="titleInput" maxlength="100" placeholder="e.g. I will design a modern minimalist logo for your brand">
+      <div class="charcount" id="titleCount">0 / 80 characters (ideal: 60-80)</div>
+
+      <label>Primary Keyword / Service Category</label>
+      <input type="text" id="titleKeyword" placeholder="e.g. logo design">
+
+      <div class="btn-row">
+        <button class="btn" onclick="analyzeTitle()">🔍 Analyze Title</button>
+        <button class="btn secondary" onclick="clearTitle()">Clear</button>
+      </div>
+    </div>
+
+    <div class="card" id="titleResultCard" style="display:none;">
+      <h2><span class="dot"></span>Title Analysis Result</h2>
+      <div class="score-wrap">
+        <div class="score-circle" id="titleScoreCircle">
+          <div class="score-num" id="titleScoreNum">0</div>
+          <div class="score-label">SCORE</div>
+        </div>
+        <div class="score-meta">
+          <h3>Title SEO Score</h3>
+          <p id="titleScoreDesc">Run the analyzer to see results.</p>
+          <span class="score-tag" id="titleScoreTag"></span>
+        </div>
+      </div>
+      <ul class="check-list" id="titleChecks"></ul>
+    </div>
+
+    <div class="card" id="titleSuggestCard" style="display:none;">
+      <h2><span class="dot"></span>💡 Suggested Title Variations</h2>
+      <ul class="check-list" id="titleSuggestions"></ul>
+    </div>
+  </div>
+
+  <!-- ============ TAB 2: DESCRIPTION ANALYZER ============ -->
+  <div class="panel" id="panel-desc">
+    <div class="card">
+      <h2><span class="dot"></span>Gig Description Input</h2>
+      <label>Paste Your Gig Description</label>
+      <textarea id="descInput" placeholder="Paste your full Fiverr gig description here..."></textarea>
+      <div class="charcount" id="descCount">0 words / 0 characters</div>
+
+      <label>Target Keyword (for density check)</label>
+      <input type="text" id="descKeyword" placeholder="e.g. logo design">
+
+      <div class="btn-row">
+        <button class="btn" onclick="analyzeDesc()">🔍 Analyze Description</button>
+        <button class="btn secondary" onclick="clearDesc()">Clear</button>
+      </div>
+    </div>
+
+    <div class="card" id="descResultCard" style="display:none;">
+      <h2><span class="dot"></span>Description Analysis Result</h2>
+      <div class="score-wrap">
+        <div class="score-circle" id="descScoreCircle">
+          <div class="score-num" id="descScoreNum">0</div>
+          <div class="score-label">SCORE</div>
+        </div>
+        <div class="score-meta">
+          <h3>Description Quality Score</h3>
+          <p id="descScoreDesc">Run the analyzer to see results.</p>
+          <span class="score-tag" id="descScoreTag"></span>
+        </div>
+      </div>
+      <ul class="check-list" id="descChecks"></ul>
+    </div>
+
+    <div class="card" id="descKwCard" style="display:none;">
+      <h2><span class="dot"></span>🔑 Keyword Density Report</h2>
+      <table class="kw-table">
+        <thead><tr><th>Keyword</th><th>Count</th><th>Density</th><th>Status</th></tr></thead>
+        <tbody id="kwTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ TAB 3: TAGS & SEO ============ -->
+  <div class="panel" id="panel-tags">
+    <div class="card">
+      <h2><span class="dot"></span>Gig Tags Input (Max 5)</h2>
+      <label>Enter Tags (comma separated)</label>
+      <input type="text" id="tagsInput" placeholder="e.g. logo design, minimalist logo, branding, logo maker, brand identity">
+      <div class="charcount" id="tagsCount">0 / 5 tags used</div>
+
+      <label>Gig Category</label>
+      <select id="tagsCategory">
+        <option value="general">General / Other</option>
+        <option value="graphics">Graphics & Design</option>
+        <option value="writing">Writing & Translation</option>
+        <option value="digital">Digital Marketing</option>
+        <option value="video">Video & Animation</option>
+        <option value="programming">Programming & Tech</option>
+        <option value="business">Business</option>
+      </select>
+
+      <div class="btn-row">
+        <button class="btn" onclick="analyzeTags()">🔍 Analyze Tags</button>
+        <button class="btn secondary" onclick="clearTags()">Clear</button>
+      </div>
+    </div>
+
+    <div class="card" id="tagsResultCard" style="display:none;">
+      <h2><span class="dot"></span>Tags Analysis Result</h2>
+      <div class="score-wrap">
+        <div class="score-circle" id="tagsScoreCircle">
+          <div class="score-num" id="tagsScoreNum">0</div>
+          <div class="score-label">SCORE</div>
+        </div>
+        <div class="score-meta">
+          <h3>Tags SEO Score</h3>
+          <p id="tagsScoreDesc">Run the analyzer to see results.</p>
+          <span class="score-tag" id="tagsScoreTag"></span>
+        </div>
+      </div>
+      <ul class="check-list" id="tagsChecks"></ul>
+    </div>
+
+    <div class="card" id="tagsSuggestCard" style="display:none;">
+      <h2><span class="dot"></span>💡 Suggested Additional Keywords</h2>
+      <div class="pill-row" id="tagsSuggestions"></div>
+      <p class="small-note">These are popular high-search-volume keywords for your selected category. Pick the most relevant 5 for your gig tags.</p>
+    </div>
+  </div>
+
+  <!-- ============ TAB 4: PRICING BUILDER ============ -->
+  <div class="panel" id="panel-pricing">
+    <div class="card">
+      <h2><span class="dot"></span>Pricing Package Builder</h2>
+      <div class="row">
+        <div>
+          <label>Service Type</label>
+          <select id="priceService">
+            <option value="logo">Logo Design</option>
+            <option value="content">Content Writing</option>
+            <option value="webdev">Web Development</option>
+            <option value="seo">SEO Service</option>
+            <option value="video">Video Editing</option>
+            <option value="social">Social Media Management</option>
+            <option value="va">Virtual Assistant</option>
+            <option value="custom">Custom / Other</option>
+          </select>
+        </div>
+        <div>
+          <label>Your Experience Level</label>
+          <select id="priceLevel">
+            <option value="new">New Seller (0-3 months)</option>
+            <option value="rising">Rising Talent</option>
+            <option value="level1">Level 1 Seller</option>
+            <option value="level2">Level 2 Seller</option>
+            <option value="top">Top Rated Seller</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Base Price for Basic Package (₹ INR, leave blank for auto-suggestion)</label>
+      <input type="number" id="priceBase" placeholder="e.g. 800">
+
+      <div class="btn-row">
+        <button class="btn" onclick="buildPricing()">⚙️ Generate Pricing Tiers</button>
+        <button class="btn secondary" onclick="clearPricing()">Clear</button>
+      </div>
+    </div>
+
+    <div class="card" id="pricingResultCard" style="display:none;">
+      <h2><span class="dot"></span>Suggested 3-Tier Pricing (INR)</h2>
+      <div class="pricing-grid" id="pricingGrid"></div>
+      <p class="small-note" id="pricingNote"></p>
+    </div>
+  </div>
+
+  <!-- ============ TAB 5: HINDI GUIDE ============ -->
+  <div class="panel" id="panel-guide">
+    <div class="card hindi-guide">
+      <h2>🇮🇳 इस्तेमाल कैसे करें — Hindi Usage Guide</h2>
+      <p><strong>Fiverr Gig Optimizer Pro</strong> ek free tool hai jo aapke Fiverr gig ko better rank karne aur zyada orders laane mein madad karta hai. Ye 4 hisson mein kaam karta hai:</p>
+      <ol>
+        <li><strong>Title Analyzer:</strong> Apna gig title likhein aur "Analyze Title" dabayein. Tool aapko batayega ki title ki length sahi hai ya nahi, keyword present hai ya nahi, aur power words use ho rahe hain ya nahi. 60-80 characters ka title sabse best perform karta hai.</li>
+        <li><strong>Description Analyzer:</strong> Apni gig description paste karein. Tool word count, readability, keyword density aur call-to-action (CTA) check karega. Ideal description 300-1200 words ke beech honi chahiye.</li>
+        <li><strong>Tags &amp; SEO:</strong> Apne 5 tags comma se separate karke daalein. Tool unki quality check karega aur naye trending keywords suggest karega jo aap use kar sakte hain.</li>
+        <li><strong>Pricing Builder:</strong> Apni service type aur experience level select karein — tool automatically Basic, Standard aur Premium package ke liye INR mein pricing suggest karega.</li>
+      </ol>
+      <p><strong>Tip:</strong> Har section ka score 70+ rakhne ki koshish karein. Jo bhi "⚠️" ya "✗" mark mile, unhe sudhar kar dobara analyze karein jab tak score "Good" ya "Excellent" na ho jaye.</p>
+      <p><strong>Important:</strong> Ye tool 100% browser mein chalta hai — koi data server par save nahi hota. Aap ise jitni baar chahein use kar sakte hain, bilkul free.</p>
+      <ul>
+        <li><strong>Best Practice:</strong> Title mein hamesha apna main keyword shuru mein rakhein.</li>
+        <li><strong>Best Practice:</strong> Description ke end mein hamesha ek clear CTA dein — jaise "Message me now to discuss your project!"</li>
+        <li><strong>Best Practice:</strong> Saare 5 tags ka use karein — kabhi bhi tag slots khali na chhodein.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ad-slot" id="ad-bottom">Advertisement (728x90) — AdSense Slot</div>
+
+  <footer>
+    Built with ⚡ by IncomeAIHub | Fiverr Gig Optimizer Pro — 100% Free &amp; Browser-Based<br>
+    <a href="#">More Tools at IncomeAIHub</a>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ UTILITIES ============ */
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+function setTabs(){
+  const btns = document.querySelectorAll('.tab-btn');
+  btns.forEach(b=>{
+    b.addEventListener('click', ()=>{
+      btns.forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById('panel-'+b.dataset.tab).classList.add('active');
+    });
+  });
+}
+setTabs();
+
+function scoreTag(score){
+  if(score>=85) return {cls:'tag-excellent', text:'EXCELLENT'};
+  if(score>=70) return {cls:'tag-good', text:'GOOD'};
+  if(score>=50) return {cls:'tag-fair', text:'FAIR'};
+  return {cls:'tag-poor', text:'NEEDS WORK'};
+}
+
+function renderScore(prefix, score, desc){
+  const circle = document.getElementById(prefix+'ScoreCircle');
+  const num = document.getElementById(prefix+'ScoreNum');
+  const descEl = document.getElementById(prefix+'ScoreDesc');
+  const tagEl = document.getElementById(prefix+'ScoreTag');
+  circle.style.setProperty('--pct', score);
+  num.textContent = score;
+  descEl.textContent = desc;
+  const t = scoreTag(score);
+  tagEl.className = 'score-tag '+t.cls;
+  tagEl.textContent = t.text;
+}
+
+function checkItem(status, title, desc){
+  const iconCls = status==='pass'?'icon-pass':status==='warn'?'icon-warn':'icon-fail';
+  const iconChar = status==='pass'?'✓':status==='warn'?'!':'✕';
+  return `<li><div class="check-icon ${iconCls}">${iconChar}</div><div class="check-text"><strong>${title}</strong><span>${desc}</span></div></li>`;
+}
+
+const POWER_WORDS = ['professional','premium','expert','custom','modern','minimalist','high-quality','fast','unlimited','unique','creative','best','top','guaranteed','stunning','effective','complete','advanced'];
+
+/* ============ TITLE ANALYZER ============ */
+const titleInput = document.getElementById('titleInput');
+titleInput.addEventListener('input', ()=>{
+  const len = titleInput.value.length;
+  const el = document.getElementById('titleCount');
+  el.textContent = `${len} / 80 characters (ideal: 60-80)`;
+  el.className = 'charcount ' + (len>=60 && len<=80 ? 'good' : len>80 ? 'bad' : 'warn');
+});
+
+function analyzeTitle(){
+  const title = titleInput.value.trim();
+  const keyword = document.getElementById('titleKeyword').value.trim().toLowerCase();
+
+  if(!title){ showToast('⚠️ Pehle gig title likhein'); return; }
+
+  let score = 0;
+  let checks = [];
+  const len = title.length;
+
+  // Length check
+  if(len>=60 && len<=80){ score+=25; checks.push(checkItem('pass','Optimal Length', `${len} characters — perfect range for Fiverr search visibility.`)); }
+  else if(len>=40 && len<60){ score+=15; checks.push(checkItem('warn','Length Slightly Short', `${len} characters — try expanding to 60-80 for better SEO.`)); }
+  else if(len>80){ score+=10; checks.push(checkItem('warn','Title Too Long', `${len} characters — Fiverr may truncate this in search results.`)); }
+  else { checks.push(checkItem('fail','Title Too Short', `${len} characters — add more descriptive detail.`)); }
+
+  // Starts with "I will"
+  if(/^i will/i.test(title)){ score+=15; checks.push(checkItem('pass','Standard Format', 'Title starts with "I will" — matches Fiverr buyer expectations.')); }
+  else { score+=5; checks.push(checkItem('warn','Format Suggestion', 'Consider starting with "I will" — it\\'s the proven Fiverr title format.')); }
+
+  // Keyword presence
+  if(keyword){
+    if(title.toLowerCase().includes(keyword)){ score+=25; checks.push(checkItem('pass','Keyword Present', `"${keyword}" found in title — great for search ranking.`)); }
+    else { checks.push(checkItem('fail','Keyword Missing', `"${keyword}" not found in title — add it for better SEO.`)); }
+  } else {
+    score+=10;
+    checks.push(checkItem('warn','No Keyword Entered', 'Add a target keyword above to check keyword optimization.'));
+  }
+
+  // Power words
+  const foundPower = POWER_WORDS.filter(w=>title.toLowerCase().includes(w));
+  if(foundPower.length>0){ score+=15; checks.push(checkItem('pass','Power Words Used', `Found: ${foundPower.join(', ')} — these boost buyer interest.`)); }
+  else { checks.push(checkItem('warn','No Power Words', 'Add words like "professional", "premium", or "custom" to increase appeal.')); }
+
+  // No special characters/caps spam
+  const capsRatio = (title.match(/[A-Z]/g)||[]).length / Math.max(len,1);
+  if(capsRatio < 0.3){ score+=10; checks.push(checkItem('pass','Clean Formatting', 'No excessive capitalization detected.')); }
+  else { checks.push(checkItem('fail','Too Many Capitals', 'Reduce capital letters — looks spammy to Fiverr algorithm and buyers.')); }
+
+  // Specificity (numbers or niche words)
+  if(/\d/.test(title)){ score+=10; checks.push(checkItem('pass','Specificity Detected', 'Numbers add credibility (e.g. "in 24 hours", "3 concepts").')); }
+  else { score+=5; }
+
+  score = Math.min(score,100);
+
+  let desc = score>=85 ? 'Your title is highly optimized and ready to rank!' :
+             score>=70 ? 'Good title — a few tweaks will push it to excellent.' :
+             score>=50 ? 'Decent start, but needs improvement to compete.' :
+             'Your title needs significant rework to attract buyers.';
+
+  renderScore('title', score, desc);
+  document.getElementById('titleChecks').innerHTML = checks.join('');
+  document.getElementById('titleResultCard').style.display = 'block';
+
+  // Suggestions
+  const baseKw = keyword || 'your service';
+  const suggestions = [
+    `I will ${baseKw.startsWith('i will')?'':''}${capitalizeFirst(baseKw)} professionally with unlimited revisions`,
+    `I will provide premium ${baseKw} for your brand in 24 hours`,
+    `I will create a custom ${baseKw} solution that converts`,
+    `I will be your expert ${baseKw} specialist on Fiverr`
+  ];
+  document.getElementById('titleSuggestions').innerHTML = suggestions.map(s=>
+    checkItem('pass', 'Suggestion', s)
+  ).join('');
+  document.getElementById('titleSuggestCard').style.display = 'block';
+
+  showToast('✅ Title analysis complete!');
+}
+
+function capitalizeFirst(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+
+function clearTitle(){
+  titleInput.value=''; document.getElementById('titleKeyword').value='';
+  document.getElementById('titleResultCard').style.display='none';
+  document.getElementById('titleSuggestCard').style.display='none';
+  document.getElementById('titleCount').textContent='0 / 80 characters (ideal: 60-80)';
+  document.getElementById('titleCount').className='charcount';
+}
+
+/* ============ DESCRIPTION ANALYZER ============ */
+const descInput = document.getElementById('descInput');
+descInput.addEventListener('input', ()=>{
+  const text = descInput.value.trim();
+  const words = text ? text.split(/\s+/).length : 0;
+  document.getElementById('descCount').textContent = `${words} words / ${text.length} characters`;
+});
+
+function analyzeDesc(){
+  const text = descInput.value.trim();
+  const keyword = document.getElementById('descKeyword').value.trim().toLowerCase();
+
+  if(!text){ showToast('⚠️ Pehle gig description paste karein'); return; }
+
+  const words = text.split(/\s+/).filter(Boolean);
+  const wordCount = words.length;
+  const sentences = text.split(/[.!?]+/).filter(s=>s.trim().length>0);
+  const avgWordsPerSentence = sentences.length ? (wordCount/sentences.length) : 0;
+
+  let score = 0;
+  let checks = [];
+
+  // Word count check
+  if(wordCount>=300 && wordCount<=1200){ score+=25; checks.push(checkItem('pass','Ideal Length', `${wordCount} words — within the optimal 300-1200 word range.`)); }
+  else if(wordCount<300){ checks.push(checkItem('fail','Too Short', `${wordCount} words — add more detail about your process, deliverables, and why buyers should choose you.`)); }
+  else { score+=15; checks.push(checkItem('warn','Quite Long', `${wordCount} words — consider trimming for readability.`)); }
+
+  // Paragraph / formatting check
+  const lineBreaks = (text.match(/\n/g)||[]).length;
+  if(lineBreaks>=3){ score+=15; checks.push(checkItem('pass','Good Formatting', 'Description uses multiple paragraphs/line breaks for readability.')); }
+  else { checks.push(checkItem('warn','Wall of Text', 'Break your description into short paragraphs or bullet points for easier reading.')); }
+
+  // CTA check
+  const ctaWords = ['message me','contact me','order now','reach out','let\\'s discuss','get in touch','click order','place order','inbox me'];
+  const hasCta = ctaWords.some(c=>text.toLowerCase().includes(c));
+  if(hasCta){ score+=20; checks.push(checkItem('pass','Call-To-Action Found', 'Description includes a clear CTA encouraging buyers to act.')); }
+  else { checks.push(checkItem('fail','Missing CTA', 'Add a clear call-to-action like "Message me now to get started!"')); }
+
+  // Readability (avg sentence length)
+  if(avgWordsPerSentence<=20){ score+=15; checks.push(checkItem('pass','Easy to Read', `Average ${avgWordsPerSentence.toFixed(1)} words/sentence — clear and scannable.`)); }
+  else { score+=5; checks.push(checkItem('warn','Long Sentences', `Average ${avgWordsPerSentence.toFixed(1)} words/sentence — try shorter sentences for clarity.`)); }
+
+  // Keyword usage
+  let kwData = [];
+  if(keyword){
+    const kwCount = (text.toLowerCase().match(new RegExp(escapeRegex(keyword),'g'))||[]).length;
+    const density = ((kwCount / wordCount) * 100) || 0;
+    kwData.push({kw:keyword, count:kwCount, density:density});
+    if(density>=0.5 && density<=2.5){ score+=15; checks.push(checkItem('pass','Healthy Keyword Density', `"${keyword}" appears ${kwCount}x (${density.toFixed(2)}% density) — natural and SEO-friendly.`)); }
+    else if(density<0.5){ checks.push(checkItem('warn','Low Keyword Usage', `"${keyword}" appears only ${kwCount}x — mention it 2-4 more times naturally.`)); }
+    else { score+=5; checks.push(checkItem('warn','Keyword Stuffing Risk', `"${keyword}" appears ${kwCount}x (${density.toFixed(2)}%) — reduce to avoid sounding spammy.`)); }
+  } else {
+    score+=5;
+    checks.push(checkItem('warn','No Keyword Entered', 'Add a target keyword above to check density.'));
+  }
+
+  // Bullet points check
+  if(/[•\-\*]\s/.test(text)){ score+=10; checks.push(checkItem('pass','Bullet Points Used', 'Bullet points help buyers scan key benefits quickly.')); }
+  else { checks.push(checkItem('warn','No Bullet Points', 'Consider adding bullet points to highlight key deliverables.')); }
+
+  score = Math.min(score,100);
+
+  let desc = score>=85 ? 'Excellent! Your description is buyer-ready and SEO-optimized.' :
+             score>=70 ? 'Strong description — small tweaks will make it even better.' :
+             score>=50 ? 'Average description — needs more structure and detail.' :
+             'Your description needs major improvement to convert buyers.';
+
+  renderScore('desc', score, desc);
+  document.getElementById('descChecks').innerHTML = checks.join('');
+  document.getElementById('descResultCard').style.display = 'block';
+
+  // Top word frequency table (excluding stopwords)
+  const stopwords = new Set(['the','a','an','and','or','for','to','of','in','on','with','is','are','will','i','you','your','this','that','it','as','be','at','by','my','our','we','can','will']);
+  const freq = {};
+  words.forEach(w=>{
+    const clean = w.toLowerCase().replace(/[^a-z0-9]/g,'');
+    if(clean.length>2 && !stopwords.has(clean)) freq[clean] = (freq[clean]||0)+1;
+  });
+  let topWords = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  if(keyword) topWords = [[keyword, (text.toLowerCase().match(new RegExp(escapeRegex(keyword),'g'))||[]).length], ...topWords.filter(w=>w[0]!==keyword)].slice(0,8);
+
+  const rows = topWords.map(([w,c])=>{
+    const density = ((c/wordCount)*100);
+    const status = density>=0.5 && density<=2.5 ? '<span style="color:var(--green)">Good</span>' : density>2.5 ? '<span style="color:var(--red)">High</span>' : '<span style="color:var(--yellow)">Low</span>';
+    return `<tr><td>${w}</td><td>${c}</td><td>${density.toFixed(2)}%<div class="kw-bar-bg"><div class="kw-bar" style="width:${Math.min(density*20,100)}%"></div></div></td><td>${status}</td></tr>`;
+  }).join('');
+  document.getElementById('kwTableBody').innerHTML = rows;
+  document.getElementById('descKwCard').style.display = 'block';
+
+  showToast('✅ Description analysis complete!');
+}
+
+function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+function clearDesc(){
+  descInput.value=''; document.getElementById('descKeyword').value='';
+  document.getElementById('descResultCard').style.display='none';
+  document.getElementById('descKwCard').style.display='none';
+  document.getElementById('descCount').textContent='0 words / 0 characters';
+}
+
+/* ============ TAGS & SEO ANALYZER ============ */
+const tagsInput = document.getElementById('tagsInput');
+tagsInput.addEventListener('input', ()=>{
+  const tags = tagsInput.value.split(',').map(t=>t.trim()).filter(Boolean);
+  const el = document.getElementById('tagsCount');
+  el.textContent = `${tags.length} / 5 tags used`;
+  el.className = 'charcount ' + (tags.length===5 ? 'good' : tags.length>5 ? 'bad' : 'warn');
+});
+
+const KEYWORD_BANK = {
+  general: ['fast delivery','unlimited revisions','professional service','quality work','custom solution','affordable price','24/7 support','expert freelancer'],
+  graphics: ['logo design','minimalist logo','brand identity','vector logo','business card design','social media post design','flyer design','packaging design'],
+  writing: ['seo content writing','blog writing','copywriting','article writing','ghostwriting','proofreading','technical writing','website content'],
+  digital: ['social media marketing','seo optimization','google ads','facebook ads','email marketing','influencer marketing','ppc campaign','content marketing'],
+  video: ['video editing','youtube video editing','intro video','animation video','short video edit','reels editing','motion graphics','video ads'],
+  programming: ['web development','wordpress website','shopify store','bug fixing','api integration','mobile app development','python script','chrome extension'],
+  business: ['business plan','pitch deck','market research','financial model','virtual assistant','data entry','excel automation','presentation design']
+};
+
+function analyzeTags(){
+  const raw = tagsInput.value.trim();
+  const category = document.getElementById('tagsCategory').value;
+  if(!raw){ showToast('⚠️ Pehle tags daalein'); return; }
+
+  const tags = raw.split(',').map(t=>t.trim()).filter(Boolean);
+  let score = 0;
+  let checks = [];
+
+  // Count check
+  if(tags.length===5){ score+=30; checks.push(checkItem('pass','All 5 Tags Used', 'Perfect — using all available tag slots maximizes discoverability.')); }
+  else if(tags.length>=3){ score+=15; checks.push(checkItem('warn','Not All Slots Used', `Using ${tags.length}/5 tags — add ${5-tags.length} more to maximize reach.`)); }
+  else { checks.push(checkItem('fail','Too Few Tags', `Only ${tags.length} tag(s) used — Fiverr allows up to 5, use them all.`)); }
+
+  // Length check (1-3 words ideal per tag)
+  const longTags = tags.filter(t=>t.split(' ').length>3);
+  if(longTags.length===0){ score+=20; checks.push(checkItem('pass','Concise Tags', 'All tags are short and search-friendly (1-3 words).')); }
+  else { checks.push(checkItem('warn','Some Tags Too Long', `These tags are long: ${longTags.join(', ')} — shorten to 1-3 words each.`)); }
+
+  // Duplicate words across tags
+  const allWords = tags.join(' ').toLowerCase().split(/\s+/);
+  const uniqueWords = new Set(allWords);
+  const dupRatio = 1 - (uniqueWords.size/allWords.length);
+  if(dupRatio<0.3){ score+=20; checks.push(checkItem('pass','Good Variety', 'Tags cover diverse search terms rather than repeating the same words.')); }
+  else { checks.push(checkItem('warn','Repetitive Tags', 'Several tags share the same words — diversify to capture more search queries.')); }
+
+  // Lowercase check
+  const hasUpper = tags.some(t=>/[A-Z]/.test(t));
+  if(!hasUpper){ score+=10; checks.push(checkItem('pass','Proper Formatting', 'Tags are lowercase as recommended by Fiverr.')); }
+  else { score+=5; checks.push(checkItem('warn','Capital Letters Found', 'Use lowercase for all tags for consistency.')); }
+
+  // Specific vs generic
+  const genericTags = ['design','writing','marketing','video','website','logo'];
+  const tooGeneric = tags.filter(t=>genericTags.includes(t.toLowerCase()));
+  if(tooGeneric.length===0){ score+=20; checks.push(checkItem('pass','Specific Tags', 'Your tags are specific rather than overly generic — better for ranking.')); }
+  else { checks.push(checkItem('warn','Generic Tags Detected', `"${tooGeneric.join(', ')}" are too broad — make them more specific (e.g. "minimalist logo design").`)); }
+
+  score = Math.min(score,100);
+
+  let desc = score>=85 ? 'Your tags are well-optimized for Fiverr search!' :
+             score>=70 ? 'Good tags — minor improvements possible.' :
+             score>=50 ? 'Average — refine your tags for better visibility.' :
+             'Tags need significant improvement to be discoverable.';
+
+  renderScore('tags', score, desc);
+  document.getElementById('tagsChecks').innerHTML = checks.join('');
+  document.getElementById('tagsResultCard').style.display='block';
+
+  // Suggestions
+  const bank = KEYWORD_BANK[category] || KEYWORD_BANK.general;
+  const filtered = bank.filter(k=>!tags.map(t=>t.toLowerCase()).includes(k));
+  document.getElementById('tagsSuggestions').innerHTML = filtered.map(k=>`<span class="pill cyan">${k}</span>`).join('');
+  document.getElementById('tagsSuggestCard').style.display='block';
+
+  showToast('✅ Tags analysis complete!');
+}
+
+function clearTags(){
+  tagsInput.value='';
+  document.getElementById('tagsResultCard').style.display='none';
+  document.getElementById('tagsSuggestCard').style.display='none';
+  document.getElementById('tagsCount').textContent='0 / 5 tags used';
+  document.getElementById('tagsCount').className='charcount';
+}
+
+/* ============ PRICING BUILDER ============ */
+const SERVICE_BASE = {
+  logo:{basic:600,standard:1500,premium:3500,deliv:[2,4,7]},
+  content:{basic:400,standard:1000,premium:2500,deliv:[1,3,5]},
+  webdev:{basic:2000,standard:6000,premium:15000,deliv:[3,7,14]},
+  seo:{basic:800,standard:2500,premium:6000,deliv:[3,7,14]},
+  video:{basic:500,standard:1500,premium:4000,deliv:[2,4,7]},
+  social:{basic:1000,standard:3000,premium:7000,deliv:[3,7,15]},
+  va:{basic:500,standard:1500,premium:3500,deliv:[1,3,7]},
+  custom:{basic:800,standard:2000,premium:5000,deliv:[3,5,10]}
+};
+const LEVEL_MULTIPLIER = { new:0.7, rising:0.85, level1:1, level2:1.3, top:1.8 };
+
+function buildPricing(){
+  const service = document.getElementById('priceService').value;
+  const level = document.getElementById('priceLevel').value;
+  const baseInput = parseFloat(document.getElementById('priceBase').value);
+
+  const svc = SERVICE_BASE[service];
+  const mult = LEVEL_MULTIPLIER[level];
+
+  let basic, standard, premium;
+  if(baseInput && baseInput>0){
+    basic = baseInput;
+    standard = Math.round(baseInput*2.4/50)*50;
+    premium = Math.round(baseInput*5.5/50)*50;
+  } else {
+    basic = Math.round(svc.basic*mult/50)*50;
+    standard = Math.round(svc.standard*mult/50)*50;
+    premium = Math.round(svc.premium*mult/50)*50;
+  }
+
+  const tiers = [
+    {name:'BASIC', price:basic, delivery:svc.deliv[0], features:['1 Concept/Revision','Source File','Basic Support','Standard Delivery']},
+    {name:'STANDARD', price:standard, delivery:svc.deliv[1], features:['3 Concepts/Revisions','All Source Files','Priority Support','Faster Delivery','Commercial Use']},
+    {name:'PREMIUM', price:premium, delivery:svc.deliv[2], features:['Unlimited Revisions','All Files + Extras','24/7 Priority Support','Fastest Delivery','Commercial Use','Bonus Add-on']}
+  ];
+
+  document.getElementById('pricingGrid').innerHTML = tiers.map(t=>`
+    <div class="price-card">
+      <h4>${t.name}</h4>
+      <div class="amount">₹${t.price.toLocaleString('en-IN')}</div>
+      <div class="delivery">⏱ ${t.delivery} Day${t.delivery>1?'s':''} Delivery</div>
+      <ul>${t.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+    </div>
+  `).join('');
+
+  document.getElementById('pricingNote').textContent = `Pricing auto-calculated for ${document.getElementById('priceService').selectedOptions[0].text} at "${document.getElementById('priceLevel').selectedOptions[0].text}" level. Adjust based on your market research and competitor pricing.`;
+  document.getElementById('pricingResultCard').style.display='block';
+  showToast('✅ Pricing tiers generated!');
+}
+
+function clearPricing(){
+  document.getElementById('priceBase').value='';
+  document.getElementById('pricingResultCard').style.display='none';
+}
+</script>
+
+</body>
+</html>
